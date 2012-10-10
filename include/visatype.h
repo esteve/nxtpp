@@ -50,11 +50,11 @@
 
 /*- VISA Types --------------------------------------------------------------*/
 
-typedef unsigned long       ViUInt32;
+typedef unsigned int       ViUInt32;
 typedef ViUInt32    _VI_PTR ViPUInt32;
 typedef ViUInt32    _VI_PTR ViAUInt32;
 
-typedef _VI_SIGNED long     ViInt32;
+typedef _VI_SIGNED int     ViInt32;
 typedef ViInt32     _VI_PTR ViPInt32;
 typedef ViInt32     _VI_PTR ViAInt32;
 

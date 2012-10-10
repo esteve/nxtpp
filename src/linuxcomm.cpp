@@ -289,7 +289,7 @@ NXTFileIterator Comm::GetFileIterator(std::string pattern, bool & isFatal)
 	char *fileout = (char *) malloc(19);
 	memcpy(fileout, outBuf + 4, 19);
 
-	long size = outBuf[24] + (256 * outBuf[25]) + (outBuf[26] == 0 ? 0 : 65536 * outBuf[26])
+	int size = outBuf[24] + (256 * outBuf[25]) + (outBuf[26] == 0 ? 0 : 65536 * outBuf[26])
 		+ (outBuf[27] == 0 ? 0 : outBuf[27] * 16777216);
 	iter = NXTFileIterator(outBuf[3], fileout, size);
 
@@ -344,7 +344,7 @@ void Comm::destroyModule(NXTModule & module)
   ///START + CLEAN UP ABOVE
 // A utility method for converting
 // size into bits
-int *getSizeBytes(long size)
+int *getSizeBytes(int size)
 {
 	int b[4] = { 0 };
 	int count = 0;
@@ -502,7 +502,7 @@ const char *NXTFileIterator::getCurrFileName()
 	return currFileName;
 }
 
-long NXTFileIterator::getCurrFileSize()
+int NXTFileIterator::getCurrFileSize()
 {
 	return currFileSize;
 }

@@ -56,7 +56,7 @@ struct NXTFile
 
 	char *name;
 	int fd;
-	long size;
+	int size;
 	int mode;
 
 	bool isOpen;
@@ -86,13 +86,13 @@ struct NXTFileIterator
 
 	int fd;
 	char *currFileName;
-	long currFileSize;
+	int currFileSize;
 
 	bool isValid();
 	int next();
 	int close();
 	int getFile(NXTFile & file);
-	long getCurrFileSize();
+	int getCurrFileSize();
 	const char *getCurrFileName();
 };
 
