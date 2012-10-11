@@ -264,6 +264,12 @@ void NXT::Sensor::SetSound(int port)
 	Comm::SendDirectCommand( false, reinterpret_cast< ViByte* >( directCommandBuffer ), sizeof( directCommandBuffer ), NULL, 0);
 }
 
+void NXT::Sensor::SetColor(int port)
+{
+	ViUInt8 directCommandBuffer[] = { 0x05, port, 0x0D, 0x80 };
+	Comm::SendDirectCommand( false, reinterpret_cast< ViByte* >( directCommandBuffer ), sizeof( directCommandBuffer ), NULL, 0);
+}
+
 void NXT::Sensor::SetLight(int port, bool active)
 {
 	if(active)
@@ -314,6 +320,10 @@ void NXT::Sensor::Set(int port, SensorType type)
 	case Sonar:
 		msgtype = 0x0B;
 		mode = 0x00;
+		break;
+	case Color:
+		msgtype = 0x0D;
+		mode = 0x80;
 		break;
 	}
 	ViUInt8 directCommandBuffer[] = { 0x05, port, msgtype, mode };

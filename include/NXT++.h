@@ -37,7 +37,8 @@ enum SensorType
 	Sound, /*!< A sound sensor. GetValue() returns a decibel value.*/
 	Light, /*!< A light sensor with the infrared light off. GetValue() returns a percent.*/
 	ActiveLight, /*!< A light sensor with the infrared light on. GetValue() returns a percent.*/
-	Sonar /*!< An ultrasonic sensor. GetValue() returns a distance in centimeters.*/
+	Sonar, /*!< An ultrasonic sensor. GetValue() returns a distance in centimeters.*/
+	Color /*!< An full color sensor. GetValue() returns one pixel color.*/
 };
 //! Initiates the NXT connection.
 /*! Returns true if it completed without error. Returns false if it failed. You should not continue to
@@ -102,6 +103,10 @@ void SetLight(int port, bool active);
 /*! \param port The port that you wish to set as a sonar sensor. Can be the numbers 0-3 or IN_1,
 IN_2, IN_3, or IN_4.*/;
 void SetSonar(int port);
+//! Sets a sensor in a specified port to a full color sensor.
+/*! \param port The port that you wish to set as a full color sensor. Can be the numbers 0-3 or IN_1,
+IN_2, IN_3, or IN_4.*/;
+void SetColor(int port);
 //! Waits a specified time.
 /*! \param time The time to wait in milliseconds.*/;
 void Wait(int time);
@@ -339,6 +344,8 @@ namespace NXT
 		void SetSonarContinuous(int port);
 
 		void SetSonarContinuousInterval(int port, int interval);
+
+                void SetColor(int port);
 	}
 
     
